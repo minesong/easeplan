@@ -17,7 +17,7 @@
 					loading.show();
 					ajax({
 						data:{userName:value1,password:value2},
-						url:'/api/login',
+						url:'/user/login',
 						success:function(result){
 							loading.hide();
 							location.href = '/';

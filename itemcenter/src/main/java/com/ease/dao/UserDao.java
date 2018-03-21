@@ -18,4 +18,6 @@ public interface UserDao {
     User selectUserByPhoneOrEmail(@Param("emailOrPhone") String emailOrPhone, @Param("state") Short state);
 
     List<User> selectAllUser();
+
+    String selectUserByName(@Param("userName") String userName);
 }
