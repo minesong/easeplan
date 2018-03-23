@@ -5,7 +5,7 @@
 	}
 	var title = form['title'];
 	var summary = form['summary'];
-	var image = form['image'];
+	var image = form['imageURL'];
 	var detail = form['detail'];
 	var price = form['price'];
 	var isSubmiting = false;

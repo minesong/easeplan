@@ -5,7 +5,8 @@ import java.util.Date;
 
 public class Content {
     private Long id;
-    private String content;
+    private String detail;
+    private String summary;
     private String title;
     private String imageURL;
     private BigDecimal price;
@@ -13,6 +14,7 @@ public class Content {
     private Date createTime;
     private Date modifyTime;
     private Short isDelete;
+    private Long detailId;
 
     public Long getId() {
         return id;
@@ -20,14 +22,6 @@ public class Content {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public String getTitle() {
@@ -44,6 +38,22 @@ public class Content {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public BigDecimal getPrice() {
@@ -84,5 +94,13 @@ public class Content {
 
     public void setIsDelete(Short isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public Long getDetailId() {
+        return detailId;
+    }
+
+    public void setDetailId(Long detailId) {
+        this.detailId = detailId;
     }
 }

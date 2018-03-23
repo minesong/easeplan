@@ -8,4 +8,10 @@ public interface ContentService {
     List<Content> getAllContent();
 
     List<Content> getContentIsSale();
+
+    Content getContentDetailById(Long contentId);
+
+    Boolean updateContentAndDetailById(Content content);
+
+    Long addContentAndDetail(Content content);
 }

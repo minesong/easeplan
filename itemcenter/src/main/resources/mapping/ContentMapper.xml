@@ -4,7 +4,6 @@
 
     <resultMap id="ContentBaseMap" type="com.ease.model.Content">
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="image_url" property="imageURL" jdbcType="VARCHAR"/>
         <result column="price" property="price" jdbcType="DECIMAL"/>
@@ -12,6 +11,7 @@
         <result column="create_time" property="createTime" jdbcType="DATE"/>
         <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
+        <result column="detail_id" property="detailId" jdbcType="BIGINT"/>
     </resultMap>
 
     <select id="selectAllContent" resultMap="ContentBaseMap">
@@ -23,5 +23,25 @@
         SELECT * FROM t_content
         WHERE is_delete = 0 AND is_sale = 0;
     </select>
-
+    <update id="updateContentById" parameterType="com.ease.model.Content">
+        update t_content
+        <set>
+            <if test="con.title != null and con.title != '' ">
+                title =#{con.title,jdbcType=VARCHAR},
+            </if>
+            <if test="con.imageURL != null and con.imageURL != '' ">
+                image_url =#{con.imageURL,jdbcType=VARCHAR},
+            </if>
+            <if test="con.price != null and con.price != '' ">
+                price =#{con.price,jdbcType=DECIMAL},
+            </if>
+            <if test="con.modifyTime != null and con.modifyTime != '' ">
+                modify_time =#{con.modifyTime,jdbcType=DATE},
+            </if>
+        </set>
+        where id = #{con.id,jdbcType=BIGINT}
+    </update>
+    <insert id="addContent" parameterType="com.ease.model.Content">
+        INSERT INTO t_content VALUES(#{con.id},#{con.title},#{con.imageURL},#{con.price},#{con.isSale},#{con.createTime},#{con.modifyTime},#{con.isDelete},#{con.detailId});
+    </insert>
 </mapper>
