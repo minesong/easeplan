@@ -14,12 +14,12 @@
     <div class="g-doc f-cb">
         <div class="user">
             买家你好，<span class="name">mmmmm</span>！<a href="">[退出]</a>
-            请<a href="javascript:void(0)" id="loginskip">[登录]</a>
+            请<a href="/user/loginskip" id="loginskip">[登录]</a>
         </div>
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
-            <li><a href="./account.html">账务</a></li>
-            <li><a href="./public.html">发布</a></li>
+            <li><a href="/purchased/showPurItem">账务</a></li>
+            <li><a href="/content/publicSkip">发布</a></li>
         </ul>
     </div>
 </div>
@@ -37,12 +37,13 @@
             <c:if test="${!empty contentList}">
                 <c:forEach var="cl" items="${contentList}">
                     <li id="p-1">
-                        <a href="./show.html" class="link">
+                        <input type="hidden" name="contentId" value=${cl.id}>
+                        <a href="/content/detail?contentId=${cl.id}"  class="link">
                             <div class="img"><img src=${cl.imageURL} alt=""></div>
                             <h3>${cl.title}</h3>
                             <div class="price"><span class="v-unit">¥</span><span class="v-value">${cl.price}</span>
                             </div>
-                            <span class="had"><b>${(cl.isSale eq 0) ? "在售" : "已售出"}   </b></span>
+                            <span class="had"><b>${(cl.isSale eq 0) ? "在售" : "已售出"} </b></span>
                         </a>
                     </li>
                 </c:forEach>
@@ -57,10 +58,6 @@
 <script type="text/javascript" src="../../js/pageIndex.js"></script>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
 <script type="text/javascript">
-    $("#loginskip").click(function () {
-        window.location.href = "/user/loginskip";
-    });
-
 
 </script>
 </body>

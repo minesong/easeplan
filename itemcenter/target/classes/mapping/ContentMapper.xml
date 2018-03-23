@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ease.dao.ContentDao">
-
+    <!--在字段中有Date和DateTime类型，在插入数据时只要将实体的属性设置成Timestamp就会对应mysql的DateTime类型，Date会对应mysql的Date类型。jdbcType不支持datetime-->
     <resultMap id="ContentBaseMap" type="com.ease.model.Content">
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="image_url" property="imageURL" jdbcType="VARCHAR"/>
         <result column="price" property="price" jdbcType="DECIMAL"/>
         <result column="is_sale" property="isSale" jdbcType="SMALLINT"></result>
-        <result column="create_time" property="createTime" jdbcType="DATE"/>
-        <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
+        <result column="detail_id" property="detailId" jdbcType="BIGINT"/>
     </resultMap>
 
     <select id="selectAllContent" resultMap="ContentBaseMap">
@@ -23,5 +23,25 @@
         SELECT * FROM t_content
         WHERE is_delete = 0 AND is_sale = 0;
     </select>
-
+    <update id="updateContentById" parameterType="com.ease.model.Content">
+        update t_content
+        <set>
+            <if test="con.title != null and con.title != '' ">
+                title =#{con.title,jdbcType=VARCHAR},
+            </if>
+            <if test="con.imageURL != null and con.imageURL != '' ">
+                image_url =#{con.imageURL,jdbcType=VARCHAR},
+            </if>
+            <if test="con.price != null and con.price != '' ">
+                price =#{con.price,jdbcType=DECIMAL},
+            </if>
+            <if test="con.modifyTime != null and con.modifyTime != '' ">
+                modify_time =#{con.modifyTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{con.id,jdbcType=BIGINT}
+    </update>
+    <insert id="addContent" parameterType="com.ease.model.Content">
+        INSERT INTO t_content VALUES(#{con.id},#{con.title},#{con.imageURL},#{con.price},#{con.isSale},#{con.createTime},#{con.modifyTime},#{con.isDelete},#{con.detailId});
+    </insert>
 </mapper>

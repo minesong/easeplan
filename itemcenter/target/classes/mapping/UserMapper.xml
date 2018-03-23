@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ease.dao.UserDao">
-
+    <!--在字段中有Date和DateTime类型，在插入数据时只要将实体的属性设置成Timestamp就会对应mysql的DateTime类型，Date会对应mysql的Date类型。jdbcType不支持datetime-->
     <resultMap id="UserBaseMap" type="com.ease.model.User">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
@@ -9,8 +9,8 @@
         <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
         <result column="user_pwd" property="userPwd" jdbcType="VARCHAR"/>
         <result column="pwd_salt" property="pwdSalt" jdbcType="VARCHAR"/>
-        <result column="create_time" property="createTime" jdbcType="DATE"/>
-        <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
     </resultMap>
 

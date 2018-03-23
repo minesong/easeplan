@@ -10,8 +10,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="easeplan" target="1.8" />
-      <module name="itemcenter" target="1.8" />
+      <module name="easeplan" target="1.5" />
+      <module name="itemcenter" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

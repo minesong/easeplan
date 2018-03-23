@@ -35,7 +35,7 @@ public class UserController {
         return "showUser";
     }
 
-    @RequestMapping(value = "/loginskip",method = RequestMethod.POST)
+    @RequestMapping(value = "/loginskip",method = RequestMethod.GET)
     public String userLoginSkip() {
         log.info("用户登录跳转");
         return "login";

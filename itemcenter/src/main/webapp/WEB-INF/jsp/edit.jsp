@@ -16,7 +16,7 @@
         </div>
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
-            <li><a href="./account.html">账务</a></li>
+            <li><a href="/purchased/showPurItem">账务</a></li>
             <li><a href="./public.html">发布</a></li>
         </ul>
     </div>

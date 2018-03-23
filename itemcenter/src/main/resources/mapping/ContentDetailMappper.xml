@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//m                 ybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ease.dao.ContentDao">
-
+    <!--在字段中有Date和DateTime类型，在插入数据时只要将实体的属性设置成Timestamp就会对应mysql的DateTime类型，Date会对应mysql的Date类型。jdbcType不支持datetime-->
     <resultMap id="ContentDetailBaseMap" type="com.ease.model.Content">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
@@ -12,8 +12,8 @@
         <result column="image_url" property="imageURL" jdbcType="VARCHAR"/>
         <result column="price" property="price" jdbcType="DECIMAL"/>
         <result column="is_sale" property="isSale" jdbcType="SMALLINT"></result>
-        <result column="create_time" property="createTime" jdbcType="DATE"/>
-        <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
     </resultMap>
 
@@ -40,7 +40,7 @@
                 detail =#{contentDetail.detail,jdbcType=VARCHAR},
             </if>
             <if test="contentDetail.modifyTime != null and contentDetail.modifyTime != '' ">
-                modify_time =#{contentDetail.modifyTime,jdbcType=DATE},
+                modify_time =#{contentDetail.modifyTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         where id = #{contentDetail.id,jdbcType=BIGINT}
