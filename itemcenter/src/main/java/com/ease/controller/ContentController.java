@@ -2,11 +2,15 @@ package com.ease.controller;
 
 import com.ease.model.Content;
 import com.ease.service.ContentService;
+import com.ease.utils.UploadUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -36,8 +40,12 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
-    private String contentAndDetailEditSubmit(Content content, Model model) {
+    private String contentAndDetailEditSubmit(HttpServletRequest request, Content content, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("编辑商品详情");
+        if (StringUtils.isEmpty(content.getImageURL())) {
+            String realPath = UploadUtils.upload(myfiles, request);
+            content.setImageURL(realPath);
+        }
         Boolean flag = contentService.updateContentAndDetailById(content);
         if (flag) {
             model.addAttribute("contendId", content.getId());
@@ -47,8 +55,12 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    private String addContentAndDetail(Content content, Model model) {
+    private String addContentAndDetail(HttpServletRequest request,Content content, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("新增商品详情");
+        if (StringUtils.isEmpty(content.getImageURL())) {
+            String realPath = UploadUtils.upload(myfiles, request);
+            content.setImageURL(realPath);
+        }
         Long detailId = contentService.addContentAndDetail(content);
         model.addAttribute("contentId", detailId);
         return "publicSubmit";
