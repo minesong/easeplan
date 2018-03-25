@@ -17,7 +17,7 @@
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
             <li><a href="/purchased/showPurItem">账务</a></li>
-            <li><a href="/content/publicSkip>发布</a></li>
+            <li><a href="/content/publicSkip">发布</a></li>
         </ul>
     </div>
 </div>
@@ -26,7 +26,7 @@
         <h2>内容发布</h2>
     </div>
     <div class="n-public">
-        <form class="m-form m-form-ht" id="form" method="post" action="/content/add" onsubmit="return false;" autocomplete="off">
+        <form class="m-form m-form-ht" id="form" method="post" action="/content/add" onsubmit="return false;" autocomplete="off"   enctype="multipart/form-data">
             <div class="fmitem">
                 <label class="fmlab">标题：</label>
                 <div class="fmipt">
@@ -43,6 +43,8 @@
                 <label class="fmlab">图片：</label>
                 <div class="fmipt">
                     <input class="u-ipt ipt" name="imageURL" placeholder="图片地址"/>
+                    <input type="file" value="选择图片" name="myfiles">
+
                 </div>
             </div>
             <div class="fmitem">
@@ -73,7 +75,25 @@
 <script type="text/javascript" src="../../js/public.js"></script>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
 <script type="text/javascript">
-
+    function login() {
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "multipart/form-data",//预期服务器返回的数据类型
+            url: "/uploadFile/upload" ,//url
+            data: input["name='myfiles'"],
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.resultCode == 200) {
+                    alert("SUCCESS");
+                }
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }
 </script>
+</div>
 </body>
 </html>

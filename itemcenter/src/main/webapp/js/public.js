@@ -27,7 +27,7 @@
 			}.bind(this));
 			image.addEventListener('input',function(e){
 				var value = image.value.trim();
-				if(value != '' && /^(http|https):\/\//.test(value) && /\.(jpg|gif|png)$/.test(value)){
+				if(value != ''){
 					imgpre.src = value;
 				}
 			}.bind(this),false);
@@ -37,12 +37,24 @@
 			[
 				[title,function(value){return value.length<2 || value.length>80}],
 				[summary,function(value){return value.length<2 || value.length>140}],
-				[image,function(value){return value == '' || !(/^(http|https):\/\//.test(value) && /\.(jpg|gif|png)$/.test(value))}],
+				//^是开头符号 $是结尾符号。／在这里是转意符，不代表任何意思
+				//Returns a Boolean value that indicates whether or not a pattern exists in a searched string.test(value)
+				[image,function(value){
+				if(value == '')
+					return false;
+				else
+				    return value == '' || !(/*/^(http|https):\/\//.test(value) && *//\.(jpg|gif|png)$/.test(value))}],
 				[detail,function(value){return value.length<2 || value.length>1000}],
 				[price,function(value){return value == '' || !Number(value)}]
 			].forEach(function(item){
-				var value = item[0].value.trim();
+				//item[0]为前半部分如输入框，1为后面的函数整体
+				var value = item[0].value.trim();//此时value为输入框填入的内容。
+				//alert(value);
+				//alert(item[0]);
+                //alert(item[1]);
+                //alert(item[1](value));
 				if(item[1](value)){
+				    //只要有一个item[1](value)返回true（check校验不通过），则result为false
 					item[0].classList.add('z-err');
 					result = false;
 				}

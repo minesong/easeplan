@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PurItemService {
     List<PurItem> getAllPurItems();
+
+    Long addPurItem(PurItem purItem);
 }

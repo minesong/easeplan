@@ -17,7 +17,7 @@
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
             <li><a href="/purchased/showPurItem">账务</a></li>
-            <li><a href="./public.html">发布</a></li>
+            <li><a href="/content/publicSkip">发布</a></li>
         </ul>
     </div>
 </div>
@@ -26,7 +26,7 @@
         <h2>内容编辑</h2>
     </div>
     <div class="n-public">
-        <form class="m-form m-form-ht" id="form" method="post" action="/content/editSubmit" onsubmit="return false;" autocomplete="off">
+        <form class="m-form m-form-ht" id="form" method="post" action="/content/editSubmit" onsubmit="return false;" autocomplete="off"  enctype="multipart/form-data">
             <input type="hidden" name="id" value="${contentDetail.id}">
             <div class="fmitem">
                 <label class="fmlab">标题：</label>
@@ -43,7 +43,8 @@
             <div class="fmitem">
                 <label class="fmlab">图片：</label>
                 <div class="fmipt">
-                    <input class="u-ipt ipt" name="imageURL" value="${contentDetail.imageURL}" placeholder="图片地址"/>
+                    <input class="u-ipt ipt" name="imageURL" value="${contentDetail.imageURL}" placeholder="选择图片地址或者图片上传"/>
+                    <input type="file" value="选择图片" name="myfiles">
                 </div>
             </div>
             <div class="fmitem">

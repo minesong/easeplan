@@ -55,8 +55,11 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
         <url-pattern>*.css</url-pattern>
-        <url-pattern>/assets/*"</url-pattern>
-        <url-pattern>/images/*</url-pattern>
+        <url-pattern>/assets/*</url-pattern>
+        <url-pattern>*.jpeg</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.png</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
