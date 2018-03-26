@@ -42,13 +42,16 @@ public class ContentController {
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
     private String contentAndDetailEditSubmit(HttpServletRequest request, Content content, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("编辑商品详情");
+        //暂存。此时的content 是 cotentdetail
+        Long detailId = content.getId();
         if (StringUtils.isEmpty(content.getImageURL())) {
             String realPath = UploadUtils.upload(myfiles, request);
             content.setImageURL(realPath);
         }
            Boolean flag = contentService.updateContentAndDetailById(content);
         if (flag) {
-            model.addAttribute("contendId", content.getId());
+            //此时的content.getId 已经不是detailId 而是简略版的contentId。所以。要暂存detailId
+            model.addAttribute("contendId", detailId);
             return "editSubmit";
         }
         return "edit";

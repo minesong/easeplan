@@ -21,4 +21,10 @@ public interface ContentDao {
     Integer addContentDetail(@Param("contentDetail") Content contentDetail);
 
     Integer addContent(@Param("con") Content con);
+
+    Content selectContentByDetailId(@Param("detailId") Long detailId);
+
+    Integer updateIsSaleInContentByDetailId(@Param("detailId") Long detailId);
+
+    Integer updateIsSaleInContentDetailById(@Param("detailId") Long detailId);
 }

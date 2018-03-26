@@ -38,12 +38,12 @@
                 <c:forEach var="cl" items="${contentList}">
                     <li id="p-1">
                         <input type="hidden" name="contentId" value=${cl.id}>
-                        <a href="/content/detail?contentId=${cl.id}"  class="link">
+                        <a href="/content/detail?contentId=${cl.detailId}"  class="link">
                             <div class="img"><img src=${cl.imageURL} alt=""></div>
                             <h3>${cl.title}</h3>
                             <div class="price"><span class="v-unit">¥</span><span class="v-value">${cl.price}</span>
                             </div>
-                            <span class="had"><b>${(cl.isSale eq 0) ? "在售" : "已售出"} </b></span>
+                            <span class="had"><b>${(cl.isSale eq 1) ? "在售" : "已售出"} </b></span>
                         </a>
                     </li>
                 </c:forEach>

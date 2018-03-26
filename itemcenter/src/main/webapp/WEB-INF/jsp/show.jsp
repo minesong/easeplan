@@ -32,8 +32,8 @@
             </div>
             <div class="oprt f-cb">
                 <button class="u-btn u-btn-primary" id="buyItem" data-buy="1">购 买</button>
-                <span class="u-btn u-btn-primary z-dis">已购买</span>
-                <span class="buyprice">当时购买价格：¥${contentDetail.price}</span>
+                <span class="u-btn u-btn-primary z-dis" id="hasBuied">已购买</span>
+                <span class="buyprice" id="buyprice">当时购买价格：¥${contentDetail.price}</span>
                 <a href="/content/editSkip?contentId=${contentDetail.id}" class="u-btn u-btn-primary">编 辑</a>
             </div>
         </div>
@@ -52,8 +52,18 @@
 <script type="text/javascript" src="../../js/pageShow.js"></script>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
 <script type="text/javascript">
+    var isSale =${contentDetail.isSale};
+    if( isSale == 1){
+        $("#buyItem").show();
+        $("#hasBuied").hide();
+        $("#buyprice").hide();
+    }else{
+        $("#buyItem").hide();
+        $("#hasBuied").show();
+        $("#buyprice").show();
+    }
+
     $("#buyItem").click(function () {
-        /*alert(${contentDetail.id});*/
         if(confirm("确定购买?")){
             $.post("/purchased/add",
                 {

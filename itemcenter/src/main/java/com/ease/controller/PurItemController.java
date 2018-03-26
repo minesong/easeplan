@@ -1,5 +1,6 @@
 package com.ease.controller;
 
+import com.ease.dao.ContentDao;
 import com.ease.model.PurItem;
 import com.ease.service.PurItemService;
 import org.apache.log4j.Logger;
@@ -20,6 +21,8 @@ public class PurItemController {
     private Logger log = Logger.getLogger(PurItemController.class);
     @Resource
     private PurItemService purItemService;
+    @Resource
+    private ContentDao contentDao;
 
     @RequestMapping(value = "/showPurItem", method = RequestMethod.GET)
     public String showPurItem(HttpServletRequest request, Model model) {
@@ -43,6 +46,7 @@ public class PurItemController {
     public String addPurItem(Long id, Model model) {
         log.info("新增购买详情");
         Long purItemId = purItemService.addPurItem(id);
+        //需要更新商品的IsSale状态
         return purItemId == null ? "0" : purItemId.toString();
     }
 }

@@ -49,4 +49,11 @@
             useGeneratedKeys="true" keyProperty="contentDetail.id">
         INSERT INTO t_content_detail VALUES(#{contentDetail.id},#{contentDetail.title},#{contentDetail.imageURL},#{contentDetail.price},#{contentDetail.isSale},#{contentDetail.detail},#{contentDetail.summary},#{contentDetail.createTime},#{contentDetail.modifyTime},#{contentDetail.isDelete});
     </insert>
+    <update id="updateIsSaleInContentDetailById" parameterType="java.lang.Long">
+        update t_content_detail
+        <set>
+            is_sale=0
+        </set>
+        where id = #{detailId,jdbcType=BIGINT}
+    </update>
 </mapper>

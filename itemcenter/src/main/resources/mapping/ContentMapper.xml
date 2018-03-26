@@ -44,4 +44,15 @@
     <insert id="addContent" parameterType="com.ease.model.Content">
         INSERT INTO t_content VALUES(#{con.id},#{con.title},#{con.imageURL},#{con.price},#{con.isSale},#{con.createTime},#{con.modifyTime},#{con.isDelete},#{con.detailId});
     </insert>
+    <select id="selectContentByDetailId" resultMap="ContentBaseMap">
+        SELECT * FROM t_content
+        WHERE detail_id = #{detailId,jdbcType=BIGINT}
+    </select>
+    <update id="updateIsSaleInContentByDetailId" parameterType="java.lang.Long">
+        update t_content
+        <set>
+            is_sale=0
+        </set>
+        where detail_id = #{detailId,jdbcType=BIGINT}
+    </update>
 </mapper>

@@ -28,19 +28,21 @@ public class PurItemServiceImpl implements PurItemService {
         if (id == null) {
             return 0L;
         }
-        Content content = contentDao.selectContentDetailById(id);
-        if (content== null){
+        Content contentDetail = contentDao.selectContentDetailById(id);
+        if (contentDetail == null) {
             return 0L;
         }
         PurItem purItem = new PurItem();
-        purItem.setImageURL(content.getImageURL());
-        purItem.setTitle(content.getTitle());
-        purItem.setPrice(content.getPrice());
+        purItem.setImageURL(contentDetail.getImageURL());
+        purItem.setTitle(contentDetail.getTitle());
+        purItem.setPrice(contentDetail.getPrice());
         purItem.setDetailId(id);
         purItem.setIsDelete((short) 0);
         purItem.setCreateTime(new Date());
         //res 为0 或者 1 1为成功
         Long res = purItemDao.insertPurItem(purItem);
+        contentDao.updateIsSaleInContentByDetailId(id);
+        contentDao.updateIsSaleInContentDetailById(id);
         return purItem.getId();
     }
 }

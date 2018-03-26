@@ -16,5 +16,8 @@
         SELECT * FROM t_purchased_item
         WHERE is_delete = 0
     </select>
-
+    <insert id="insertPurItem" parameterType="com.ease.model.PurItem"
+            useGeneratedKeys="true" keyProperty="purItem.id">
+        INSERT INTO t_purchased_item VALUES(#{purItem.id},#{purItem.imageURL},#{purItem.title},#{purItem.price},#{purItem.detailId},#{purItem.createTime},#{purItem.isDelete});
+    </insert>
 </mapper>

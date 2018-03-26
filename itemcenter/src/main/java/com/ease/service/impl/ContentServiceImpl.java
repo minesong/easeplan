@@ -35,6 +35,10 @@ public class ContentServiceImpl implements ContentService {
         content.setModifyTime(new Date());
         content.setIsDelete((short) 0);
         contentDao.updateContentDetailById(content);
+        //参数传递过来的content id 是detail Id 不是简略版content id
+        //注意contentId 和 detailId 不是一个ID！，更新时需要查询contend id
+        Content tmp = contentDao.selectContentByDetailId(content.getId());
+        content.setId(tmp.getId());
         contentDao.updateContentById(content);
 
         return true;
@@ -47,7 +51,7 @@ public class ContentServiceImpl implements ContentService {
         content.setCreateTime(new Date());
         content.setModifyTime(new Date());
         content.setIsDelete((short) 0);
-        content.setIsSale((short) 0);
+        content.setIsSale((short) 1);
         contentDao.addContentDetail(content);
         content.setDetailId(content.getId());
         content.setId(null);
