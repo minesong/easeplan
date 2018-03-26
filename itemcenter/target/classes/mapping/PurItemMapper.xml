@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ease.dao.PurItemDao">
+    <!--在字段中有Date和DateTime类型，在插入数据时只要将实体的属性设置成Timestamp就会对应mysql的DateTime类型，Date会对应mysql的Date类型。jdbcType不支持datetime-->
+    <resultMap id="PurItemBaseMap" type="com.ease.model.PurItem">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="image_url" property="imageURL" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="price" property="price" jdbcType="DECIMAL"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
+        <result column="detail_id" property="detailId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <select id="selectAllPurItems" resultMap="PurItemBaseMap">
+        SELECT * FROM t_purchased_item
+        WHERE is_delete = 0
+    </select>
+
+</mapper>

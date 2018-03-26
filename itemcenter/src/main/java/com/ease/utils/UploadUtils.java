@@ -35,7 +35,7 @@ public class UploadUtils {
                     e.printStackTrace();
                     return "";
                 }
-                realPath =  "/upload/" + myfile.getOriginalFilename();
+                realPath = "/upload/" + myfile.getOriginalFilename();
             }
         }
         return realPath;
