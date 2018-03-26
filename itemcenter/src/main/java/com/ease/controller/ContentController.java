@@ -46,7 +46,7 @@ public class ContentController {
             String realPath = UploadUtils.upload(myfiles, request);
             content.setImageURL(realPath);
         }
-        Boolean flag = contentService.updateContentAndDetailById(content);
+           Boolean flag = contentService.updateContentAndDetailById(content);
         if (flag) {
             model.addAttribute("contendId", content.getId());
             return "editSubmit";

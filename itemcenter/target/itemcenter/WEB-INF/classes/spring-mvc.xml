@@ -10,6 +10,10 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <!--  增加<mvc:default-servlet-handler/>，只能访问jsp和静态文件，访问action则报404错误 -->
+    <mvc:default-servlet-handler />
+    <!--再增加如下配置-->
+    <mvc:annotation-driven />
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.ease.controller"/>
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->

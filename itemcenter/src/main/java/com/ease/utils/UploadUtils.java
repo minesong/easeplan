@@ -25,18 +25,19 @@ public class UploadUtils {
                 System.out.println("文件原名: " + myfile.getOriginalFilename());
                 System.out.println("========================================");
                 //如果用的是Tomcat服务器，则文件会上传到{服务发布位置}\\WEB-INF\\upload\\文件夹中
-                //realPath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload");
-                realPath = "D:/develop/images/";
+                realPath = request.getSession().getServletContext().getRealPath("/upload");
+                // realPath = "D:/develop/images/";
                 //这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的
+
                 try {
                     FileUtils.copyInputStreamToFile(myfile.getInputStream(), new File(realPath, myfile.getOriginalFilename()));
                 } catch (IOException e) {
                     e.printStackTrace();
                     return "";
                 }
-                realPath =  myfile.getOriginalFilename();
+                realPath =  "/upload/" + myfile.getOriginalFilename();
             }
         }
-        return "/upload/"+realPath;
+        return realPath;
     }
 }
