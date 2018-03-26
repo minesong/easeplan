@@ -1,6 +1,8 @@
 package com.ease.service.impl;
 
+import com.ease.dao.ContentDao;
 import com.ease.dao.PurItemDao;
+import com.ease.model.Content;
 import com.ease.model.PurItem;
 import com.ease.service.PurItemService;
 import org.springframework.stereotype.Service;
@@ -15,17 +17,30 @@ import java.util.List;
 public class PurItemServiceImpl implements PurItemService {
     @Resource
     private PurItemDao purItemDao;
+    @Resource
+    private ContentDao contentDao;
 
     public List<PurItem> getAllPurItems() {
         return purItemDao.selectAllPurItems();
     }
 
-    public Long addPurItem(PurItem purItem) {
-        if (purItem == null) {
+    public Long addPurItem(Long id) {
+        if (id == null) {
             return 0L;
         }
-        purItem.setIsDelete((short)0);
+        Content content = contentDao.selectContentDetailById(id);
+        if (content== null){
+            return 0L;
+        }
+        PurItem purItem = new PurItem();
+        purItem.setImageURL(content.getImageURL());
+        purItem.setTitle(content.getTitle());
+        purItem.setPrice(content.getPrice());
+        purItem.setDetailId(id);
+        purItem.setIsDelete((short) 0);
         purItem.setCreateTime(new Date());
-        return purItemDao.insertPurItem(purItem);
+        //res 为0 或者 1 1为成功
+        Long res = purItemDao.insertPurItem(purItem);
+        return purItem.getId();
     }
 }

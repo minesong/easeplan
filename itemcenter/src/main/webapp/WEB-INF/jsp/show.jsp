@@ -22,7 +22,7 @@
     </div>
 </div>
 <div class="g-doc">
-    <div class="n-show f-cb" id="showContent">
+    <div class="n-show f-cb" id="showContent_my">
         <div class="img"><img src=${contentDetail.imageURL} alt=""></div>
         <div class="cnt">
             <h2>${contentDetail.title}</h2>
@@ -31,7 +31,7 @@
                 <span class="v-unit">¥</span><span class="v-value">${contentDetail.price} </span>
             </div>
             <div class="oprt f-cb">
-                <button class="u-btn u-btn-primary" data-buy="0">购 买</button>
+                <button class="u-btn u-btn-primary" id="buyItem" data-buy="1">购 买</button>
                 <span class="u-btn u-btn-primary z-dis">已购买</span>
                 <span class="buyprice">当时购买价格：¥${contentDetail.price}</span>
                 <a href="/content/editSkip?contentId=${contentDetail.id}" class="u-btn u-btn-primary">编 辑</a>
@@ -51,5 +51,23 @@
 <script type="text/javascript" src="../../js/global.js"></script>
 <script type="text/javascript" src="../../js/pageShow.js"></script>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
+<script type="text/javascript">
+    $("#buyItem").click(function () {
+        /*alert(${contentDetail.id});*/
+        if(confirm("确定购买?")){
+            $.post("/purchased/add",
+                {
+                    id:${contentDetail.id}
+                },
+                function (data) {
+                alert("购买成功！");
+                window.location.href="/purchased/showPurItem";
+                })}
+        else{
+            alert("购买失败！请重新购买");
+        }
+    });
+
+</script>
 </body>
 </html>

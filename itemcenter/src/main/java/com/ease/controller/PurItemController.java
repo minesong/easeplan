@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -37,8 +38,11 @@ public class PurItemController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    private void addPurItem(PurItem purItem, Model model) {
+    @ResponseBody
+    //@ResponseBodya 很关键 ，不然ajax 请求报错。post或者get方法不匹配
+    public String addPurItem(Long id, Model model) {
         log.info("新增购买详情");
-        Long detailId = purItemService.addPurItem(purItem);
+        Long purItemId = purItemService.addPurItem(id);
+        return purItemId == null ? "0" : purItemId.toString();
     }
 }
