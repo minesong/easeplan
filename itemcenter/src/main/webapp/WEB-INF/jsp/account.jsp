@@ -12,8 +12,8 @@
 <div class="n-head">
     <div class="g-doc f-cb">
         <div class="user">
-            买家你好，<span class="name">mmmmm</span>！<a href="">[退出]</a>
-            请<a href="/user/loginskip">[登录]</a>
+            <span class="name" id="whoIsHere"> 买家你好，${sessionScope.loginName}！<a href="#" id="logout-my">[退出]</a></span>
+            <span id="isLogin"> 请<a href="/user/loginskip">[登录]</a></span>
         </div>
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
@@ -70,5 +70,28 @@
     <p>版权所有：网易云课堂<a href="http://mooc.study.163.com/smartSpec/detail/85002.htm">Java开发工程师(Web方向)</a>微专业团队</p>
 </div>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        //注意一定是字符创格式！！！不然报错!找不到符号！！
+        var sl='${sessionScope.loginName}';
+        //alert(sl);
+        //字符串空字符！！
+        if(sl != ''){
+            $("#isLogin").hide();
+            $("#whoIsHere").show();
+        }else {
+            $("#isLogin").show();
+            $("#whoIsHere").hide();
+        }
+    }
+    $("#logout-my").click(function () {
+        if (confirm("确定退出?")) {
+            $.get("/user/logout",
+                function (data) {
+                    window.location.href = "/content/showContent";
+                })
+        }
+    });
+</script>
 </body>
 </html>

@@ -20,4 +20,8 @@
             useGeneratedKeys="true" keyProperty="purItem.id">
         INSERT INTO t_purchased_item VALUES(#{purItem.id},#{purItem.imageURL},#{purItem.title},#{purItem.price},#{purItem.detailId},#{purItem.createTime},#{purItem.isDelete});
     </insert>
+    <select id="selectBuyPriceByDetailId" parameterType="java.lang.Long" resultType="java.math.BigDecimal">
+        SELECT price FROM t_purchased_item
+        WHERE detail_id = #{detailId}
+    </select>
 </mapper>
