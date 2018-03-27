@@ -4,6 +4,7 @@ import com.ease.model.Content;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -27,4 +28,9 @@ public interface ContentDao {
     Integer updateIsSaleInContentByDetailId(@Param("detailId") Long detailId);
 
     Integer updateIsSaleInContentDetailById(@Param("detailId") Long detailId);
+
+    Integer deleteContentDetailById(@Param("detailId") Long detailId);
+
+    Integer deleteContentByDetailId(@Param("detailId") Long detailId);
+
 }

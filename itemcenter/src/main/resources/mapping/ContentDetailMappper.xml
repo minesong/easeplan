@@ -56,4 +56,11 @@
         </set>
         where id = #{detailId,jdbcType=BIGINT}
     </update>
+    <update id="deleteContentDetailById" parameterType="java.lang.Long">
+        update t_content_detail
+        <set>
+            is_delete=1
+        </set>
+        where id = #{detailId,jdbcType=BIGINT}
+    </update>
 </mapper>

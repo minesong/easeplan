@@ -58,4 +58,14 @@ public class ContentServiceImpl implements ContentService {
         contentDao.addContent(content);
         return content.getDetailId();
     }
+
+    @Override
+    public Integer deleteItem(Long id) {
+        if (id == null) {
+            return 0;
+        }
+        contentDao.deleteContentDetailById(id);
+        Integer res = contentDao.deleteContentByDetailId(id);
+        return res;
+    }
 }

@@ -33,8 +33,9 @@
             <div class="oprt f-cb">
                 <button class="u-btn u-btn-primary" id="buyItem" data-buy="1">购 买</button>
                 <span class="u-btn u-btn-primary z-dis" id="hasBuied">已购买</span>
-                <span class="buyprice" id="buyprice">当时购买价格：¥${contentDetail.price}</span>
+                <span class="buyprice" id="buyprice">当时购买价格：¥${buyPrice}</span>
                 <a href="/content/editSkip?contentId=${contentDetail.id}" class="u-btn u-btn-primary">编 辑</a>
+                <button class="u-btn u-btn-primary" id="deleteItem">删 除</button>
             </div>
         </div>
     </div>
@@ -52,32 +53,50 @@
 <script type="text/javascript" src="../../js/pageShow.js"></script>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
 <script type="text/javascript">
-    var isSale =${contentDetail.isSale};
-    if( isSale == 1){
-        $("#buyItem").show();
-        $("#hasBuied").hide();
-        $("#buyprice").hide();
-    }else{
-        $("#buyItem").hide();
-        $("#hasBuied").show();
-        $("#buyprice").show();
+    alert(123);
+    alert(${buyPrice});
+
+    //Jquery在页面加载后执行
+    window.onload = function () {
+        var isSale =${contentDetail.isSale};
+        if (isSale == 1) {
+            $("#buyItem").show();
+            $("#hasBuied").hide();
+            $("#buyprice").hide();
+        } else {
+            $("#buyItem").hide();
+            $("#hasBuied").show();
+            $("#buyprice").show();
+        }
     }
 
     $("#buyItem").click(function () {
-        if(confirm("确定购买?")){
+        if (confirm("确定购买?")) {
             $.post("/purchased/add",
                 {
                     id:${contentDetail.id}
                 },
                 function (data) {
-                alert("购买成功！");
-                window.location.href="/purchased/showPurItem";
-                })}
-        else{
-            alert("购买失败！请重新购买");
+                    alert("购买成功！");
+                    window.location.href = "/purchased/showPurItem";
+                })
         }
     });
-
+    $("#deleteItem").click(function () {
+        var isSale =${contentDetail.isSale};
+        if (isSale == 0) {
+            alert("该商品已经出售不能删除！");
+        } else if (confirm("确定删除?")) {
+            $.post("/content/delete",
+                {
+                    id:${contentDetail.id}
+                },
+                function (data) {
+                    alert("删除成功！");
+                    window.location.href = "/content/showContent";
+                })
+        }
+    });
 </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>java</title>
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
 </head>
 <body>
 <div class="n-support">请使用Chrome、Safari等webkit内核的浏览器！</div>

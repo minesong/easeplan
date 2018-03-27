@@ -14,4 +14,6 @@ public interface ContentService {
     Boolean updateContentAndDetailById(Content content);
 
     Long addContentAndDetail(Content content);
+
+    Integer deleteItem(Long id);
 }

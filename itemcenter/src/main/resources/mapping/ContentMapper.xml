@@ -21,7 +21,7 @@
 
     <select id="selectContentIsSale" resultMap="ContentBaseMap">
         SELECT * FROM t_content
-        WHERE is_delete = 0 AND is_sale = 0;
+        WHERE is_delete = 0 AND is_sale = 1;
     </select>
     <update id="updateContentById" parameterType="com.ease.model.Content">
         update t_content
@@ -52,6 +52,14 @@
         update t_content
         <set>
             is_sale=0
+        </set>
+        where detail_id = #{detailId,jdbcType=BIGINT}
+    </update>
+    <update id="deleteContentByDetailId" parameterType="java.lang.Long">
+        update t_content
+        <set>
+            is_delete=1
+            modify_time =
         </set>
         where detail_id = #{detailId,jdbcType=BIGINT}
     </update>
