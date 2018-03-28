@@ -21,10 +21,14 @@
             <mvc:mapping path="/**"/>
             <!-- 不进行拦截 -->
             <mvc:exclude-mapping path="/content/showContent"/>
-         <!--    <mvc:exclude-mapping path="/user/loginskip"/>
-             <mvc:exclude-mapping path="/user/login"/>-->
+            <!--    <mvc:exclude-mapping path="/user/loginskip"/>
+                <mvc:exclude-mapping path="/user/login"/>-->
             <mvc:exclude-mapping path="/welcome.jsp"/>
             <bean class="com.ease.utils.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.ease.utils.AccessAuthorityInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
     <!-- 自动扫描  @Controller-->

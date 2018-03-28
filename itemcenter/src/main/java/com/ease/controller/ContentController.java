@@ -3,6 +3,7 @@ package com.ease.controller;
 import com.ease.model.Content;
 import com.ease.service.ContentService;
 import com.ease.service.PurItemService;
+import com.ease.utils.AccessAuthority;
 import com.ease.utils.UploadUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -45,6 +46,7 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
+    @AccessAuthority(isSeller = true)
     private String contentAndDetailEditSubmit(HttpServletRequest request, Content content, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("编辑商品详情");
         //暂存。此时的content 是 cotentdetail
@@ -63,6 +65,7 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @AccessAuthority(isSeller = true)
     private String addContentAndDetail(HttpServletRequest request, Content content, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("新增商品详情");
         if (StringUtils.isEmpty(content.getImageURL())) {
@@ -75,6 +78,7 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/editSkip", method = RequestMethod.GET)
+    @AccessAuthority(isSeller = true)
     private String getContentDetailByIdToEdit(Long contentId, Model model) {
         log.info("查询商品编辑详情");
         Content contentDetail = contentService.getContentDetailById(contentId);
@@ -83,6 +87,7 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/publicSkip", method = RequestMethod.GET)
+    @AccessAuthority(isSeller = true)
     private String toPublicEditSkip(Long contentId, Model model) {
         log.info("跳转到新增详情详情");
         return "public";
@@ -102,6 +107,7 @@ public class ContentController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     //@ResponseBodya 很关键 ，不然ajax 请求报错。post或者get方法不匹配
+    @AccessAuthority(isSeller = true)
     public String deleteItem(Long id, Model model) {
         log.info("删除商品详情");
         Integer res = contentService.deleteItem(id);

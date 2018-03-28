@@ -12,29 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="07f3c77a-4ad6-4d57-85b9-356fd5ef8a84" name="Default" comment="上传功能实现">
       <change beforePath="" afterPath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthority.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/LoginInterceptor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/js/jquery.md5.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthorityInterceptor.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java" afterPath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java" />
+      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/PurItemController.java" afterPath="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/PurItemController.java" />
       <change beforePath="$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml" afterPath="$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/account.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/account.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/edit.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/edit.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/editSubmit.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/editSubmit.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/public.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/public.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/publicSubmit.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/publicSubmit.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/show.jsp" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/show.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/classes/com/ease/controller/UserController.class" afterPath="$PROJECT_DIR$/itemcenter/target/classes/com/ease/controller/UserController.class" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/classes/spring-mvc.xml" afterPath="$PROJECT_DIR$/itemcenter/target/classes/spring-mvc.xml" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter.war" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter.war" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/classes/spring-mvc.xml" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/classes/spring-mvc.xml" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/account.jsp" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/account.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/edit.jsp" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/edit.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/editSubmit.jsp" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/editSubmit.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/public.jsp" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/public.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/publicSubmit.jsp" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/jsp/publicSubmit.jsp" />
-      <change beforePath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/itemcenter/target/itemcenter/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,58 +48,81 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            <state relative-caret-position="870">
+              <caret line="46" column="47" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccessAuthority.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AccessAuthority.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthority.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+            <state relative-caret-position="330">
+              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/show.jsp">
+      <file leaf-file-name="spring-mvc.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+            <state relative-caret-position="525">
+              <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/html/account.html">
+      <file leaf-file-name="AccessAuthorityInterceptor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthorityInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="127">
+              <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/edit.jsp">
+      <file leaf-file-name="HandlerInterceptorAdapter.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/handler/HandlerInterceptorAdapter.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="83">
+              <caret line="12" column="73" lean-forward="false" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+              <folding>
+                <marker date="1521526928148" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1521526928148" expanded="false" signature="163:365" ph="..." />
+                <marker date="1521526928148" expanded="true" signature="491:498" ph="{}" />
+                <marker date="1521526928148" expanded="true" signature="620:648" ph="{...}" />
+                <marker date="1521526928148" expanded="true" signature="795:802" ph="{}" />
+                <marker date="1521526928148" expanded="true" signature="941:948" ph="{}" />
+                <marker date="1521526928148" expanded="true" signature="1088:1095" ph="{}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <file leaf-file-name="AsyncHandlerInterceptor.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/AsyncHandlerInterceptor.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-833">
-              <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+            <state relative-caret-position="180">
+              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+              <folding>
+                <marker date="1521526928148" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1521526928148" expanded="false" signature="155:240" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginInterceptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/LoginInterceptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,8 +131,8 @@
       <file leaf-file-name="ContentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="619">
+              <caret line="97" column="27" lean-forward="false" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -136,8 +141,8 @@
       <file leaf-file-name="PurItemController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/PurItemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+            <state relative-caret-position="817">
+              <caret line="48" column="27" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -146,18 +151,8 @@
       <file leaf-file-name="UploadController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/UploadController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
+            <state relative-caret-position="480">
               <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publicSubmit.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/publicSubmit.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -170,8 +165,8 @@
       <list>
         <option value="Interface" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -209,8 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/itemcenter/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/model/User.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/resources/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/service/UserService.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/service/impl/UserServiceImpl.java" />
@@ -233,13 +226,11 @@
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/js/public.js" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/UploadUtils.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/js/pageShow.js" />
-        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/PurItemController.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/service/ContentService.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/service/impl/ContentServiceImpl.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/resources/mapping/ContentMapper.xml" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/service/PurItemService.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/resources/mapping/ContentDetailMappper.xml" />
-        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/resources/mapping/PurItemMapper.xml" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/dao/ContentDao.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/service/impl/PurItemServiceImpl.java" />
@@ -251,7 +242,6 @@
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/js/pageIndex.js" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/show_seller.jsp" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/show.jsp" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/account.jsp" />
@@ -260,6 +250,11 @@
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/index.jsp" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/public.jsp" />
         <option value="$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/publicSubmit.jsp" />
+        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthority.java" />
+        <option value="$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java" />
+        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/PurItemController.java" />
+        <option value="$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthorityInterceptor.java" />
       </list>
     </option>
   </component>
@@ -283,9 +278,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="373" />
-    <option name="y" value="7" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-32" />
+    <option name="y" value="195" />
     <option name="width" value="1400" />
     <option name="height" value="880" />
   </component>
@@ -373,7 +368,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ease" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easeplan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easeplan" type="462c0819:PsiDirectoryNode" />
+              <item name="itemcenter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ease" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easeplan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easeplan" type="462c0819:PsiDirectoryNode" />
+              <item name="itemcenter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -671,7 +684,7 @@
       <workItem from="1521957113866" duration="5482000" />
       <workItem from="1521962741140" duration="6976000" />
       <workItem from="1522041863642" duration="21606000" />
-      <workItem from="1522112224165" duration="34246000" />
+      <workItem from="1522112224165" duration="37569000" />
     </task>
     <task id="LOCAL-00001" summary="配置文件">
       <created>1521530930578</created>
@@ -757,11 +770,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522157330197</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="按钮卖家与买家 优化。登录拦截器">
+      <created>1522207972724</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1522207972724</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212298000" />
+    <option name="totallyTimeSpent" value="215621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -773,7 +793,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="373" y="7" width="1400" height="880" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7939481" sideWeight="0.50582904" order="7" side_tool="true" content_ui="tabs" />
@@ -797,8 +817,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5572207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32234958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27936748" sideWeight="0.847769" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32132566" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24028498" sideWeight="0.847769" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24028498" sideWeight="0.15223098" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -829,7 +849,8 @@
     <MESSAGE value="增加购买功能，修改bug" />
     <MESSAGE value="删除和价格相关更新，增加购买价格" />
     <MESSAGE value="登录功能实现，以及按钮优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录功能实现，以及按钮优化" />
+    <MESSAGE value="按钮卖家与买家 优化。登录拦截器" />
+    <option name="LAST_COMMIT_MESSAGE" value="按钮卖家与买家 优化。登录拦截器" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,7 +862,7 @@
           <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -850,28 +871,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/UploadUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/js/pageShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="757">
@@ -1072,14 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="57" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="24" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/HandlerExecutionChain.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
@@ -1183,16 +1174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/LoginInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/itemcenter/src/main/webapp/WEB-INF/jsp/account.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1265,25 +1246,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java">
+    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/LoginInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/AsyncHandlerInterceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <marker date="1521526928148" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1521526928148" expanded="false" signature="155:240" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/resources/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthority.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/handler/HandlerInterceptorAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="12" column="73" lean-forward="false" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding>
+            <marker date="1521526928148" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1521526928148" expanded="false" signature="163:365" ph="..." />
+            <marker date="1521526928148" expanded="true" signature="491:498" ph="{}" />
+            <marker date="1521526928148" expanded="true" signature="620:648" ph="{...}" />
+            <marker date="1521526928148" expanded="true" signature="795:802" ph="{}" />
+            <marker date="1521526928148" expanded="true" signature="941:948" ph="{}" />
+            <marker date="1521526928148" expanded="true" signature="1088:1095" ph="{}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/PurItemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+        <state relative-caret-position="817">
+          <caret line="48" column="27" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/UploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
+        <state relative-caret-position="480">
           <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
           <folding />
         </state>
@@ -1291,17 +1315,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        <state relative-caret-position="870">
+          <caret line="46" column="47" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthority.java">
+    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/controller/ContentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        <state relative-caret-position="619">
+          <caret line="97" column="27" lean-forward="false" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itemcenter/src/main/java/com/ease/utils/AccessAuthorityInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

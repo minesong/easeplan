@@ -3,6 +3,7 @@ package com.ease.controller;
 import com.ease.dao.ContentDao;
 import com.ease.model.PurItem;
 import com.ease.service.PurItemService;
+import com.ease.utils.AccessAuthority;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ public class PurItemController {
     private ContentDao contentDao;
 
     @RequestMapping(value = "/showPurItem", method = RequestMethod.GET)
+    @AccessAuthority(isBuyer = true)
     public String showPurItem(HttpServletRequest request, Model model) {
         log.info("查询所有已经购买商品信息");
         List<PurItem> purItemList = purItemService.getAllPurItems();
@@ -39,7 +41,7 @@ public class PurItemController {
         model.addAttribute("total", total);
         return "account";
     }
-
+    @AccessAuthority(isBuyer = true)
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     //@ResponseBodya 很关键 ，不然ajax 请求报错。post或者get方法不匹配
