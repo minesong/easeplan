@@ -59,7 +59,6 @@ public class ContentServiceImpl implements ContentService {
         return content.getDetailId();
     }
 
-    @Override
     public Integer deleteItem(Long id) {
         if (id == null) {
             return 0;

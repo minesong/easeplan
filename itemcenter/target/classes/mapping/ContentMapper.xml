@@ -59,7 +59,6 @@
         update t_content
         <set>
             is_delete=1
-            modify_time =
         </set>
         where detail_id = #{detailId,jdbcType=BIGINT}
     </update>
