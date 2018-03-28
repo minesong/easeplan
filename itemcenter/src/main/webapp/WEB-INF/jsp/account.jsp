@@ -12,13 +12,13 @@
 <div class="n-head">
     <div class="g-doc f-cb">
         <div class="user">
-            <span class="name" id="whoIsHere"> 买家你好，${sessionScope.loginName}！<a href="#" id="logout-my">[退出]</a></span>
+            <span class="name" id="whoIsHere">你好，${sessionScope.loginName}！<a href="#" id="logout-my">[退出]</a></span>
             <span id="isLogin"> 请<a href="/user/loginskip">[登录]</a></span>
         </div>
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
-            <li><a href="/purchased/showPurItem">账务</a></li>
-            <li><a href="/content/publicSkip">发布</a></li>
+            <li><a href="/purchased/showPurItem" id="account-my">账务</a></li>
+            <li><a href="/content/publicSkip" id="public-my">发布</a></li>
         </ul>
     </div>
 </div>
@@ -45,8 +45,7 @@
         <c:if test="${!empty purItemList}">
             <c:forEach var="purItem" items="${purItemList}">
                 <tr>
-                    <td><a href="/content/detail?contentId=${purItem.detailId}"><img src="${purItem.imageURL}"
-                                                                                     alt=""></a>
+                    <td><a href="/content/detail?contentId=${purItem.detailId}"><img src="${purItem.imageURL}"alt=""></a>
                     </td>
                     <td><h4><a href="/content/detail?contentId=${purIdtem.detailId}">${purItem.title}</a>
                     </h4></td>
@@ -74,6 +73,13 @@
     window.onload = function () {
         //注意一定是字符创格式！！！不然报错!找不到符号！！
         var sl='${sessionScope.loginName}';
+        if(sl == "buyer"){
+            $("#public-my").hide();
+            $("#account-my").show();
+        }else if (sl == "seller"){
+            $("#account-my").hide();
+            $("#public-my").show();
+        }
         //alert(sl);
         //字符串空字符！！
         if(sl != ''){

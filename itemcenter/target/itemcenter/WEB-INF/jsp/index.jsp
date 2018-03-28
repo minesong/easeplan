@@ -13,13 +13,13 @@
 <div class="n-head">
     <div class="g-doc f-cb">
         <div class="user">
-            买家你好，<span class="name">mmmmm</span>！<a href="">[退出]</a>
-            请<a href="/user/loginskip" id="loginskip">[登录]</a>
+           <span class="name" id="whoIsHere">你好，${sessionScope.loginName}！<a href="#" id="logout-my">[退出]</a></span>
+            <span id="isLogin"> 请<a href="/user/loginskip">[登录]</a></span>
         </div>
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
-            <li><a href="/purchased/showPurItem">账务</a></li>
-            <li><a href="/content/publicSkip">发布</a></li>
+            <li><a href="/purchased/showPurItem" id="account-my">账务</a></li>
+            <li><a href="/content/publicSkip" id="public-my">发布</a></li>
         </ul>
     </div>
 </div>
@@ -38,7 +38,7 @@
                 <c:forEach var="cl" items="${contentList}">
                     <li id="p-1">
                         <input type="hidden" name="contentId" value=${cl.id}>
-                        <a href="/content/detail?contentId=${cl.detailId}"  class="link">
+                        <a href="/content/detail?contentId=${cl.detailId}" class="link">
                             <div class="img"><img src=${cl.imageURL} alt=""></div>
                             <h3>${cl.title}</h3>
                             <div class="price"><span class="v-unit">¥</span><span class="v-value">${cl.price}</span>
@@ -57,8 +57,39 @@
 <script type="text/javascript" src="../../js/global.js"></script>
 <script type="text/javascript" src="../../js/pageIndex.js"></script>
 <script type="text/javascript" src="../../js/jquery1.7.2.js"></script>
-<script type="text/javascript">
 
+<script type="text/javascript">
+    window.onload = function () {
+        //注意一定是字符创格式！！！不然报错!找不到符号！！
+        var sl='${sessionScope.loginName}';
+        if(sl == "buyer"){
+            $("#public-my").hide();
+            $("#account-my").show();
+        }else if (sl == "seller"){
+            $("#account-my").hide();
+            $("#public-my").show();
+        }else if (sl == ''){
+            $("#public-my").hide();
+            $("#account-my").hide();
+        }
+        //alert(sl);
+        //字符串空字符！！
+        if(sl != ''){
+            $("#isLogin").hide();
+            $("#whoIsHere").show();
+        }else {
+            $("#isLogin").show();
+            $("#whoIsHere").hide();
+        }
+    }
+    $("#logout-my").click(function () {
+        if (confirm("确定退出?")) {
+            $.get("/user/logout",
+                function (data) {
+                    window.location.href = "/content/showContent";
+                })
+        }
+    });
 </script>
 </body>
 </html>

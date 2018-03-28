@@ -11,13 +11,13 @@
 <div class="n-head">
     <div class="g-doc f-cb">
         <div class="user">
-            <span class="name" id="whoIsHere"> 买家你好，${sessionScope.loginName}！<a href="#" id="logout-my">[退出]</a></span>
+            <span class="name" id="whoIsHere">你好，${sessionScope.loginName}！<a href="#" id="logout-my">[退出]</a></span>
             <span id="isLogin"> 请<a href="/user/loginskip">[登录]</a></span>
         </div>
         <ul class="nav">
             <li><a href="/content/showContent">首页</a></li>
-            <li><a href="/purchased/showPurItem">账务</a></li>
-            <li><a href="/content/publicSkip">发布</a></li>
+            <li><a href="/purchased/showPurItem" id="account-my">账务</a></li>
+            <li><a href="/content/publicSkip" id="public-my">发布</a></li>
         </ul>
     </div>
 </div>
@@ -34,7 +34,8 @@
                 <button class="u-btn u-btn-primary" id="buyItem" data-buy="1">购 买</button>
                 <span class="u-btn u-btn-primary z-dis" id="hasBuied">已购买</span>
                 <span class="buyprice" id="buyprice">当时购买价格：¥${buyPrice}</span>
-                <a href="/content/editSkip?contentId=${contentDetail.id}" class="u-btn u-btn-primary">编 辑</a>
+                <a href="/content/editSkip?contentId=${contentDetail.id}" id="edit-my" class="u-btn u-btn-primary">编
+                    辑</a>
                 <button class="u-btn u-btn-primary" id="deleteItem">删 除</button>
             </div>
         </div>
@@ -57,26 +58,40 @@
     //Jquery在页面加载后执行
     window.onload = function () {
         //注意一定是字符创格式！！！不然报错!找不到符号！！
-        var sl='${sessionScope.loginName}';
-        //alert(sl);
+        var sl = '${sessionScope.loginName}';
+        // alert(sl=='seller');
         //字符串空字符！！
-        if(sl != ''){
+        if (sl == 'buyer') {
+            $("#public-my").hide();
+            $("#deleteItem").hide();
+            $("#edit-my").hide();
+            $("#buyItem").show();
+            $("#hasBuied").show();
+            $("#buyprice").show();
+            $("#account-my").show();
+        } else {
+            $("#account-my").hide();
+            $("#buyItem").hide();
+            $("#hasBuied").hide();
+            $("#buyprice").hide();
+            $("#deleteItem").show();
+            $("#edit-my").show();
+            $("#public-my").show();
+        }
+        if (sl != '') {
             $("#isLogin").hide();
             $("#whoIsHere").show();
-        }else {
+        } else {
             $("#isLogin").show();
             $("#whoIsHere").hide();
         }
 
         var isSale =${contentDetail.isSale};
         if (isSale == 1) {
-            $("#buyItem").show();
             $("#hasBuied").hide();
             $("#buyprice").hide();
         } else {
             $("#buyItem").hide();
-            $("#hasBuied").show();
-            $("#buyprice").show();
         }
     }
     $("#logout-my").click(function () {

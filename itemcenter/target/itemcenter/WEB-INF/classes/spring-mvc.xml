@@ -11,9 +11,22 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <!--  增加<mvc:default-servlet-handler/>，只能访问jsp和静态文件，访问action则报404错误 -->
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
     <!--再增加如下配置-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 进行拦截：/**表示拦截所有controller -->
+            <mvc:mapping path="/**"/>
+            <!-- 不进行拦截 -->
+            <mvc:exclude-mapping path="/content/showContent"/>
+         <!--    <mvc:exclude-mapping path="/user/loginskip"/>
+             <mvc:exclude-mapping path="/user/login"/>-->
+            <mvc:exclude-mapping path="/welcome.jsp"/>
+            <bean class="com.ease.utils.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.ease.controller"/>
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
@@ -37,7 +50,7 @@
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
