@@ -9,6 +9,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,9 +67,20 @@ public class ContentController {
         return "edit";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    @AccessAuthority(isSeller = true)
-    private String addContentAndDetail(HttpServletRequest request, Content content, Model model, @RequestParam MultipartFile[] myfiles) {
+    //@Validated作用就是将pojo内的注解数据校验规则(@NotNull等)生效，如果没有该注解的声明，pojo内有注解数据校验规则也不会生效
+    //BindingResult对象用来获取校验失败的信息(@NotNull中的message)，与@Validated注解必须配对使用，一前 一后
+    //BindingResult 在前会报HTTP Status 500 错误
+    //如果省略或者不一前一后BindingResult 则会报错HTTP Status 400 -
+    //type Status report
+    //message
+    //description The request sent by the client was syntactically incorrect. @RequestMapping(value = "/add", method = RequestMethod.POST)
+    //    @AccessAuthority(isSeller = true)
+
+    public String addContentAndDetail( @Validated Content content,  BindingResult bindingResult,HttpServletRequest request, Model model, @RequestParam MultipartFile[] myfiles) {
+        List<ObjectError> objectErrorList = bindingResult.getAllErrors();
+        for (ObjectError objectError : objectErrorList) {
+            System.out.println(objectError);
+        }
         log.info("新增商品详情");
         if (StringUtils.isEmpty(content.getImageURL())) {
             String realPath = UploadUtils.upload(myfiles, request);

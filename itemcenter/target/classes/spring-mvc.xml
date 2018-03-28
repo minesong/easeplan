@@ -10,10 +10,7 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-    <!--  增加<mvc:default-servlet-handler/>，只能访问jsp和静态文件，访问action则报404错误 -->
-    <mvc:default-servlet-handler/>
-    <!--再增加如下配置-->
-    <mvc:annotation-driven/>
+
 
     <mvc:interceptors>
         <mvc:interceptor>
@@ -67,4 +64,53 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="4096"/>
     </bean>
+
+
+    <!-- 配置校验器 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <!-- 校验器，使用hibernate校验器 -->
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <!-- 指定校验使用的资源文件，在文件中配置校验错误信息，如果不指定则默认使用classpath下面的ValidationMessages.properties文件 -->
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <!-- 校验错误信息配置文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!-- 资源文件名 -->
+        <property name="basenames">
+            <list>
+                <value>classpath:CustomValidationMessage</value>
+            </list>
+        </property>
+        <!-- 资源文件编码格式 -->
+        <property name="fileEncodings" value="utf-8"/>
+        <!-- 对资源文件内容缓存时间，单位秒 -->
+        <property name="cacheSeconds" value="120"/>
+  </bean>
+    <!--   2 使用ConversionService及自定义转换器
+     如果只是使用spring自带的的转换器，只需要如下配置即可：
+     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
+     如果需要注册自己实现的转换器，则需要通过以下方式进行配置:
+     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+         <property name="converters">
+             <list>
+                 <bean class="com.serverside.EncryptedKeyToBankAccountConverter" />
+             </list>
+         </property>
+     </bean>
+     如上配置之后，使用conversionService即可以转换自己想要转换的S和T。如下的代码所示：
+     //bean 对象
+     public class BankCustomer {
+     BankAccount checkingAccount;
+
+     public void setCheckingAccount(BankAccount checkingAccount) {
+     this.checkingAccount = checkingAccount;
+     <bean id="bankCustomer" class="com.serverside.convertertips.BankCustomer" scope="session">
+         <property name="checkingAccount" value="67dsdh8673hnkluye3nd38dn4j78vbn3"/>
+     </bean>-->
+   <!--必须添加这个bean 不然报错-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
+    <!--  增加<mvc:default-servlet-handler/>，只能访问jsp和静态文件，访问action则报404错误 -->
+    <mvc:default-servlet-handler/>
+    <!--再增加如下配置-->
+    <mvc:annotation-driven conversion-service="conversionService" validator="validator"/>
 </beans>

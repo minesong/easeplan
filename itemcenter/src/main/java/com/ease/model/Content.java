@@ -1,5 +1,6 @@
 package com.ease.model;
 
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -7,6 +8,7 @@ public class Content {
     private Long id;
     private String detail;
     private String summary;
+    @Size(min = 2, max = 80, message = "{content.length.error}")
     private String title;
     private String imageURL;
     private BigDecimal price;

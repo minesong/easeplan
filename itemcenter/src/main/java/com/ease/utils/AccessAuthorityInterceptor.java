@@ -14,9 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 public class AccessAuthorityInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HandlerMethod methodHandler = (HandlerMethod) handler;
-        String loginName = (String) request.getSession().getAttribute("loginName");
-        AccessAuthority auth = methodHandler.getMethodAnnotation(AccessAuthority.class);
+        AccessAuthority auth = null;
+        String loginName = null;
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod methodHandler = (HandlerMethod) handler;
+            loginName = (String) request.getSession().getAttribute("loginName");
+            auth = methodHandler.getMethodAnnotation(AccessAuthority.class);
+        }
         if (auth == null) {
             return true;
         }
