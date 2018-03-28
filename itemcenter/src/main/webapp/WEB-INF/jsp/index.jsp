@@ -43,7 +43,17 @@
                             <h3>${cl.title}</h3>
                             <div class="price"><span class="v-unit">¥</span><span class="v-value">${cl.price}</span>
                             </div>
+                    <c:choose>
+                        <c:when test="${loginName eq 'seller'}">
                             <span class="had"><b>${(cl.isSale eq 1) ? "在售" : "已售出"} </b></span>
+                        </c:when>
+                        <c:when test="${loginName eq 'buyer'}">
+                            <span class="had"><b>${(cl.isSale eq 1) ? "未购买" : "已购买"} </b></span>
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
+
                         </a>
                     </li>
                 </c:forEach>

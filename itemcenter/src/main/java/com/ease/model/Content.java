@@ -1,16 +1,20 @@
 package com.ease.model;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class Content {
     private Long id;
+    @Size(min = 2, max = 1000, message = "详情长度范围2-1000")
     private String detail;
+    @Size(min = 2, max = 140, message = "摘要长度范围2-140")
     private String summary;
-    @Size(min = 2, max = 80, message = "{content.length.error}")
+    @Size(min = 2, max = 80, message =  "标题长度范围2-80")
     private String title;
     private String imageURL;
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal price;
     private Short isSale;
     private Date createTime;

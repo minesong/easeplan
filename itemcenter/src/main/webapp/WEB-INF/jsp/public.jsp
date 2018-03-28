@@ -24,25 +24,31 @@
 <div class="g-doc">
     <div class="m-tab m-tab-fw m-tab-simple f-cb">
         <h2>内容发布</h2>
+        <h2><c:if test="${!empty errorMSG}">
+            <c:forEach var="err" items="${errorMSG}">
+                <br/>${err.defaultMessage}
+            </c:forEach>
+        </c:if>
+        </h2>
     </div>
     <div class="n-public">
         <form class="m-form m-form-ht" id="form" method="post" action="/content/add" onsubmit="return false;" autocomplete="off"   enctype="multipart/form-data">
             <div class="fmitem">
                 <label class="fmlab">标题：</label>
                 <div class="fmipt">
-                    <input class="u-ipt ipt" name="title" autofocus placeholder="2-80字符"/>
+                    <input class="u-ipt ipt" name="title" autofocus placeholder="2-80字符" value="${contentDetail.title}"/>
                 </div>
             </div>
             <div class="fmitem">
                 <label class="fmlab">摘要：</label>
                 <div class="fmipt">
-                    <input class="u-ipt ipt" name="summary" placeholder="2-140字符"/>
+                    <input class="u-ipt ipt" name="summary" placeholder="2-140字符"  value="${contentDetail.summary}"/>
                 </div>
             </div>
             <div class="fmitem">
                 <label class="fmlab">图片：</label>
                 <div class="fmipt">
-                    <input class="u-ipt ipt" name="imageURL" placeholder="图片地址"/>
+                    <input class="u-ipt ipt" name="imageURL" placeholder="选择图片地址或者文件上传" value="${contentDetail.imageURL}"/>
                     <input type="file" value="选择图片" name="myfiles">
 
                 </div>
@@ -50,13 +56,13 @@
             <div class="fmitem">
                 <label class="fmlab">正文：</label>
                 <div class="fmipt">
-                    <textarea class="u-ipt" name="detail" rows="10" placeholder="2-1000个字符"></textarea>
+                    <textarea class="u-ipt" name="detail" rows="10" placeholder="2-1000个字符">${contentDetail.detail}</textarea>
                 </div>
             </div>
             <div class="fmitem">
                 <label class="fmlab">价格：</label>
                 <div class="fmipt">
-                    <input class="u-ipt price" name="price"/>元
+                    <input class="u-ipt price" name="price" value="${contentDetail.price}" />元
                 </div>
             </div>
             <div class="fmitem fmitem-nolab fmitem-btn">

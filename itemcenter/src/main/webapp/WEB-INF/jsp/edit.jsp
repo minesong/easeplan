@@ -24,6 +24,12 @@
 <div class="g-doc">
     <div class="m-tab m-tab-fw m-tab-simple f-cb">
         <h2>内容编辑</h2>
+        <h2><c:if test="${!empty errorMSG}">
+            <c:forEach var="err" items="${errorMSG}">
+                <br/>${err.defaultMessage}
+            </c:forEach>
+        </c:if>
+        </h2>
     </div>
     <div class="n-public">
         <form class="m-form m-form-ht" id="form" method="post" action="/content/editSubmit" onsubmit="return false;" autocomplete="off"  enctype="multipart/form-data">

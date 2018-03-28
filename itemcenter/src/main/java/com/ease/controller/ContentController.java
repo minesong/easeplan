@@ -50,8 +50,16 @@ public class ContentController {
 
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
     @AccessAuthority(isSeller = true)
-    private String contentAndDetailEditSubmit(HttpServletRequest request, Content content, Model model, @RequestParam MultipartFile[] myfiles) {
+    private String contentAndDetailEditSubmit(@Validated Content content, BindingResult bindingResult, HttpServletRequest request, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("编辑商品详情");
+        List<ObjectError> objectErrorList = bindingResult.getAllErrors();
+        //TODO 添加处理错误信息
+        if (objectErrorList != null && objectErrorList.size() > 0) {
+            model.addAttribute("contentDetail", content);
+            model.addAttribute("errorMSG", objectErrorList);
+            return "edit";
+        }
+
         //暂存。此时的content 是 cotentdetail
         Long detailId = content.getId();
         if (StringUtils.isEmpty(content.getImageURL())) {
@@ -75,13 +83,17 @@ public class ContentController {
     //message
     //description The request sent by the client was syntactically incorrect. @RequestMapping(value = "/add", method = RequestMethod.POST)
     //    @AccessAuthority(isSeller = true)
-
-    public String addContentAndDetail( @Validated Content content,  BindingResult bindingResult,HttpServletRequest request, Model model, @RequestParam MultipartFile[] myfiles) {
-        List<ObjectError> objectErrorList = bindingResult.getAllErrors();
-        for (ObjectError objectError : objectErrorList) {
-            System.out.println(objectError);
-        }
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @AccessAuthority(isSeller = true)
+    public String addContentAndDetail(@Validated Content content, BindingResult bindingResult, HttpServletRequest request, Model model, @RequestParam MultipartFile[] myfiles) {
         log.info("新增商品详情");
+        List<ObjectError> objectErrorList = bindingResult.getAllErrors();
+        //TODO 添加处理错误信息
+        if (objectErrorList != null && objectErrorList.size() > 0) {
+            model.addAttribute("contentDetail", content);
+            model.addAttribute("errorMSG", objectErrorList);
+            return "public";
+        }
         if (StringUtils.isEmpty(content.getImageURL())) {
             String realPath = UploadUtils.upload(myfiles, request);
             content.setImageURL(realPath);

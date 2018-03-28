@@ -116,7 +116,6 @@
     });
     $("#deleteItem").click(function () {
         var isSale =${contentDetail.isSale};
-        alert(isSale)
         if (isSale == 0) {
             alert("该商品已经出售不能删除！");
         } else if (confirm("确定删除?")) {
