@@ -3,4 +3,6 @@
 *.iws
 .idea/
 out/
-target/
+/itemcenter/target/
+/easeplan.iml
+/.idea/

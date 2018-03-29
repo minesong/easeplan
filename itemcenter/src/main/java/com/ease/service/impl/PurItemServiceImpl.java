@@ -46,8 +46,7 @@ public class PurItemServiceImpl implements PurItemService {
         contentDao.updateIsSaleInContentDetailById(id);
         return purItem.getId();
     }
-
-    @Override
+    
     public BigDecimal getBuyPriceByDetailId(Long detailId) {
         return purItemDao.selectBuyPriceByDetailId(detailId);
     }

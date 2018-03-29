@@ -47,7 +47,7 @@
                 <tr>
                     <td><a href="/content/detail?contentId=${purItem.detailId}"><img src="${purItem.imageURL}"alt=""></a>
                     </td>
-                    <td><h4><a href="/content/detail?contentId=${purIdtem.detailId}">${purItem.title}</a>
+                    <td><h4><a href="/content/detail?contentId=${purItem.detailId}">${purItem.title}</a>
                     </h4></td>
                     <td><span class="v-time">${purItem.buiedTime}</span></td>
                     <td><span class="v-unit">¥</span><span class="value">${purItem.price}</span></td>
