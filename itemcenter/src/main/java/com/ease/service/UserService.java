@@ -4,11 +4,12 @@ import com.ease.model.User;
 
 import java.util.List;
 
-/**
- * Created by Zhangxq on 2016/7/15.
- */
 public interface UserService {
-
+    /**
+     * 获取所有未删除用户
+     *
+     * @return
+     */
     List<User> getAllUser();
 
     User getUserByPhoneOrEmail(String emailOrPhone, Short state);

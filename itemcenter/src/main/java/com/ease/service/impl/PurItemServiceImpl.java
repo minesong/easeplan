@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class PurItemServiceImpl implements PurItemService {
     @Resource
     private PurItemDao purItemDao;
@@ -24,7 +23,7 @@ public class PurItemServiceImpl implements PurItemService {
     public List<PurItem> getAllPurItems() {
         return purItemDao.selectAllPurItems();
     }
-
+    @Transactional(rollbackFor=Exception.class)
     public Long addPurItem(Long id) {
         if (id == null) {
             return 0L;

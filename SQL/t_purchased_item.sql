@@ -1,4 +1,8 @@
-/*
+
+UPDATE 2017.3.20
+ALTER TABLE t_purchased_item  ADD INDEX detail_id_index (detail_id)
+ALTER TABLE t_user  ADD INDEX detail_id_index (detail_id)
+------------------------------------------------------------------------------
  Navicat Premium Data Transfer
 
  Source Server         : ease
